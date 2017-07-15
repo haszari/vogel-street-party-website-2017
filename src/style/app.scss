@@ -1,5 +1,9 @@
-// @import "~bulma/bulma"
 
-.banana {
-	color: yellow;
-}
+// customise bulma colours/variables
+// $primary: #f3f1f6;
+// $primary-invert: #222;
+// $body-background: $primary-invert;
+
+@import "~bulma/bulma";
+
+// custom styles go here (if we have em)
