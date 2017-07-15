@@ -1,9 +1,18 @@
 
 // customise bulma colours/variables
-// $primary: #f3f1f6;
+$primary: hsl(0, 0%, 7%);
 // $primary-invert: #222;
 // $body-background: $primary-invert;
 
 @import "~bulma/bulma";
 
 // custom styles go here (if we have em)
+.footer {
+   background-color: white;
+   padding: 2rem 1.5rem 2rem;
+}
+
+.social-links a {
+   padding: 1rem;
+   // width: 4em;
+}
