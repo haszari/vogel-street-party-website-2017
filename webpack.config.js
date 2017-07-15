@@ -5,12 +5,12 @@ var OfflinePlugin = require('offline-plugin');
 var autoprefixer = require('autoprefixer');
 var ss = require('./src/ss_routes');
 
-const extractCss = new ExtractTextPlugin('styles.css');
-const extractSass = new ExtractTextPlugin('styles2.css');
+// const extractCss = new ExtractTextPlugin('styles.css');
+const extractSass = new ExtractTextPlugin('styles.css');
 
 
 module.exports = {
-  entry: './src/index',
+  entry: './src/index.jsx',
   output: {
     path: 'build',
     filename: 'bundle.js',
@@ -29,13 +29,13 @@ module.exports = {
           'css?sourceMap!sass?sourceMap'
         ),
       },
-      {
-        test: /\.css/,
-        loader: extractCss.extract(
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
-        ),
-        include: __dirname + '/src'
-      },
+      // {
+      //   test: /\.css/,
+      //   loader: extractCss.extract(
+      //     'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
+      //   ),
+      //   include: __dirname + '/src'
+      // },
       {
         test: /\.(jpg|png)/,
         loader: 'file-loader?name=/assets/img-[hash:6].[ext]',
@@ -51,7 +51,7 @@ module.exports = {
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
   plugins: [
     extractSass,
-    extractCss,
+    // extractCss,
     new OfflinePlugin(),
     new StaticSiteGeneratorPlugin('main', ss.routes, ss),
   ]

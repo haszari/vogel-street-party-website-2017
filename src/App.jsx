@@ -1,9 +1,9 @@
 import './style/app.scss'
 
 import React from 'react'
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
-import style from './App.css'
+
+import Header from './components/Header/Header.jsx'
+import Footer from './components/Footer/Footer.jsx'
 
 
 export default class App extends React.Component {

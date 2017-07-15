@@ -7,8 +7,6 @@ export default class Template extends React.Component {
       <html>
         <head>
           <link rel="stylesheet" href="/styles.css"/>
-          <link rel="stylesheet" href="/styles2.css"/>
-          <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
           <link rel="icon" href="/favicon.ico"/>
         </head>
         <body>

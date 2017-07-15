@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
 import { Router, RouterContext, match, browserHistory, createMemoryHistory } from 'react-router'
-import Template from './Template'
-import Routes from './routes'
+import Template from './Template.jsx'
+import Routes from './routes.jsx'
 
 var offlinePlugin = require('offline-plugin/runtime');
 if (typeof window != 'undefined' && window.navigator)
