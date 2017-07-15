@@ -12,7 +12,7 @@ export default class Home extends React.Component {
         <h1 className={styles.PageTitle}>Radness Tech Inc.</h1>
         <div className={styles.PageInner}>
           <img className={`${styles.Img} ${styles.ImgCenter}`} src={radImg} />
-          <p>Welcome to Radness Tech... An innovative company working on some cool and one might say radical technologies.</p>
+          <p>Welcome to <span className="banana">Radness Tech...</span> an innovative company working on some cool and one might say radical technologies.</p>
         </div>
       </div>
     )
