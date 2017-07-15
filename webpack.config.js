@@ -5,6 +5,10 @@ var OfflinePlugin = require('offline-plugin');
 var autoprefixer = require('autoprefixer');
 var ss = require('./src/ss_routes');
 
+const extractCss = new ExtractTextPlugin('styles.css');
+const extractSass = new ExtractTextPlugin('styles2.css');
+
+
 module.exports = {
   entry: './src/index',
   output: {
@@ -15,20 +19,26 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js/,
+        test: /\.(js|jsx)/,
         loader: 'babel',
         include: __dirname + '/src',
       },
       {
+        test: /\.scss$/,
+        loader: extractSass.extract(
+          'css?sourceMap!sass?sourceMap'
+        ),
+      },
+      {
         test: /\.css/,
-        loader: ExtractTextPlugin.extract(
+        loader: extractCss.extract(
           'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
         ),
         include: __dirname + '/src'
       },
       {
         test: /\.(jpg|png)/,
-        loader: 'file-loader?name=assets/img-[hash:6].[ext]',
+        loader: 'file-loader?name=/assets/img-[hash:6].[ext]',
         include: __dirname + '/src'
       },
       {
@@ -40,7 +50,8 @@ module.exports = {
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
   plugins: [
-    new ExtractTextPlugin("styles.css"),
+    extractSass,
+    extractCss,
     new OfflinePlugin(),
     new StaticSiteGeneratorPlugin('main', ss.routes, ss),
   ]

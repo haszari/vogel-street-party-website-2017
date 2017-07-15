@@ -17,9 +17,13 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js/,
+        test: /\.(js|jsx)/,
         loader: 'babel',
         include: __dirname + '/src'
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
       },
       {
         test: /\.css/,
@@ -30,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|png)/,
-        loader: 'file-loader?name=assets/img-[hash:6].[ext]',
+        loader: 'file-loader?name=/assets/img-[hash:6].[ext]',
         include: __dirname + '/src'
       },
       {
