@@ -1,5 +1,4 @@
 import React from 'react'
-import icon from './assets/images/favicon.ico'
 
 export default class Template extends React.Component {
   render() {
@@ -7,7 +6,6 @@ export default class Template extends React.Component {
       <html>
         <head>
           <link rel="stylesheet" href="/styles.css"/>
-          <link rel="icon" href="/favicon.ico"/>
         </head>
         <body>
             <div id='outlet' className="container">

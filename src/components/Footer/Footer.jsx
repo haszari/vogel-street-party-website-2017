@@ -8,7 +8,6 @@ export default class Footer extends React.Component {
         <div>
           <div>
             <IndexLink to="/">Home</IndexLink>
-            <Link to="/tech">Tech</Link>
             <Link to="/contact">Contact</Link>
           </div>
           <div >Site by Radness Tech 2016</div>

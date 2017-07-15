@@ -4,8 +4,8 @@
   "description": "An example static site using static-site-generator-webpack-plugin",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --port 5000",
-    "build": "webpack --config webpack.prod.config.js --progress -p"
+    "dev": "webpack-dev-server --config webpack-base.config.js --hot --port 5000",
+    "build": "webpack --config webpack-production.config.js --progress -p"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "offline-plugin": "^4.8.3",
     "sass-loader": "3.1.2",
     "style-loader": "^0.18.2",
-    "webpack": "^1.15.0"
+    "webpack": "^1.15.0",
+    "webpack-merge": "^4.1.0"
   }
 }

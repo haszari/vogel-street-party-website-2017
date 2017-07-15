@@ -1,7 +1,5 @@
 import React from 'react'
 
-import radImg from '../../assets/images/radness.jpg'
-
 export default class Home extends React.Component {
   render() {
     return (
