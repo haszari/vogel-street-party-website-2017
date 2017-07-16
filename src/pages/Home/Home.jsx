@@ -13,9 +13,9 @@ const introSection = (
    </section>
 );
 
-const eventSection = function(title, copy) {
+const eventSection = function(key, title, copy) {
    return (
-      <section className="main-content section">
+      <section key={key} className="main-content section">
          <div className="container">
             <div className="content">
                <h1 className="title">{title}</h1>
@@ -31,8 +31,8 @@ const eventSection = function(title, copy) {
 export default class Home extends React.Component {
    render() {
       let events = [
-         eventSection('Bands', 'There will be music on lots of stages.'),
-         eventSection('Food', 'All the vendors chomp chomp.'),
+         eventSection('bands', 'Bands', 'There will be music on lots of stages.'),
+         eventSection('food', 'Food', 'All the vendors chomp chomp.'),
       ];
       return (
          <div> 
