@@ -1,11 +1,16 @@
 
 // customise bulma colours/variables
 $primary: hsl(0, 0%, 7%);
-$family-primary: 'PT Sans', sans-serif;
+$family-primary: 'Lato', sans-serif;
 
 @import "~bulma/bulma";
 
-// custom styles go here (if we have em)
+$family-heading: 'Muli', sans-serif;
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: $family-heading;
+}
+
 .footer {
    background-color: white;
    padding: 2rem 1.5rem 2rem;
