@@ -1,18 +1,18 @@
 import React from 'react'
 
-// import radImg from '../../assets/images/radness.jpg'
-          // <img src={radImg} />
-
 export default class Contact extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Contact Radness</h1>
-        <div>
-          <p>Come visit radness tech and become one of us.</p>
-          <a href="mailto:radnesstech@radnesstech.io">Email: radnesstech@radnesstech.io</a>
-        </div>
-      </div>
-    )
-  }
+   render() {
+      return (
+         <section className="main-content section">
+            <div className="container">
+               <div className="content">
+                  <h1>Coming soon ..</h1>
+                  <div>
+                     <p>Watch this space for how to get involved or support the event.</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+      )
+   }
 }
