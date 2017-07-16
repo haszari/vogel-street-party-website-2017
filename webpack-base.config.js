@@ -1,5 +1,6 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+// var CopyWebpackPlugin = require('copy-webpack-plugin');
 var OfflinePlugin = require('offline-plugin');
 
 var autoprefixer = require('autoprefixer');
@@ -29,30 +30,22 @@ module.exports = {
           'css?sourceMap!sass?sourceMap'
         ),
       },
-      // {
-      //   test: /\.css/,
-      //   loader: extractCss.extract(
-      //     'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
-      //   ),
-      //   include: __dirname + '/src'
-      // },
       {
         test: /\.(jpg|png)/,
         loader: 'file-loader?name=/assets/img-[hash:6].[ext]',
         include: __dirname + '/src'
       },
       {
-        test: /\.(ico|otf|pdf)/,
+        test: /\.(ico|png|xml|json|svg)/,
         loader: 'file-loader?name=[name].[ext]',
-        include: __dirname + '/src/'
-      }
+        include: __dirname + '/src/assets/logo-root'
+      },
     ],
   },
-  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
-  plugins: [
-    extractSass,
-    // extractCss,
-    new OfflinePlugin(),
-    new StaticSiteGeneratorPlugin('main', ss.routes, ss),
-  ]
+   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+   plugins: [
+      extractSass,
+      new OfflinePlugin(),
+      new StaticSiteGeneratorPlugin('main', ss.routes, ss),
+   ]
 };
