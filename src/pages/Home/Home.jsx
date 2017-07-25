@@ -1,4 +1,5 @@
 import React from 'react'
+import eventData from '../../data/events'
 
 const introSection = (
    <section className="main-content section">
@@ -30,10 +31,9 @@ const eventSection = function(key, title, copy) {
 
 export default class Home extends React.Component {
    render() {
-      let events = [
-         eventSection('bands', 'Bands', 'There will be music on lots of stages.'),
-         eventSection('food', 'Food', 'All the vendors chomp chomp.'),
-      ];
+      let events = eventData.map((event, index) => {
+         return eventSection(index, event.title, event.blurb);
+      });
       return (
          <div> 
          { introSection }
