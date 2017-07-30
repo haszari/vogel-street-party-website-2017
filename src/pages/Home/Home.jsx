@@ -22,10 +22,12 @@ let googleNiceData = googleEventData.feed.entry.map((item) => {
 const introSection = (
    <section className="main-content section intro">
       <div className="container">
-         <div className="content">
-            <h1 className="title">Vogel Street Party</h1>
+         <div className="content intro">
+            <h1 className="title">Vogel Street Party 2017</h1>
             <div>
                <p>This year the party is all about <b>Ideas and Incubation</b>.</p>
+               <p>Saturday the 14th October, Vogel Street, Dunedin</p>
+               <p>Free &amp; all-ages!</p>
             </div>
          </div>
       </div>
@@ -42,7 +44,7 @@ let tidyEventItem = (options) => {
    let dataFormat = 'h:mm p';
    let displayFormat = 'h:mm';
    event.timeslot = {
-      start: moment("12pm", dataFormat),
+      start: moment("2pm", dataFormat),
       end: moment("10pm", dataFormat),
    };
 
@@ -64,11 +66,22 @@ let tidyEventItem = (options) => {
    return event;
 }
 
-const eventBox = function(key, title, copy, location, startTime, endTime) {
+const eventBox = function(key, title, copy, location, startTime, endTime, category) {
    let dataFormat = 'h:mm p';
    let displayFormat = 'h:mm';
    let timeInfo = '';
    let emdash = '\u2014';
+   let classes = "box event ";
+   if (category == 'building') 
+      classes += 'vsp-yellow-1'; 
+   else if (category == 'performance') 
+      classes += 'vsp-yellow-2'; 
+   else if (category == 'installation') 
+      classes += 'vsp-yellow-3'; 
+   else if (category == 'activity') 
+      classes += 'vsp-yellow-4'; 
+   else if (category == 'music') 
+      classes += 'vsp-yellow-5'; 
    if (startTime) {
       let endInfo = '';
       if (endTime)
@@ -81,7 +94,7 @@ const eventBox = function(key, title, copy, location, startTime, endTime) {
    }
    return (
       <div key={key} className="column is-4">
-         <div className="box event">
+         <div className={classes}>
             <h1 className="title event-title">{title}</h1>
             <div>
                {copy}
@@ -103,7 +116,9 @@ export default class Home extends React.Component {
       events = _.sortBy(events, 'timeslot.start', (a, b) => { return a-b; })
 
       let eventComponents = events.map((event, index) => {
-         return eventBox(index, event.title, event.blurb, event.location, event.display.startTime, event.display.endTime);
+         return eventBox(index, event.title, event.blurb, event.location, 
+            event.display.startTime, event.display.endTime,
+            event.category);
       });
       return (
          <div> 

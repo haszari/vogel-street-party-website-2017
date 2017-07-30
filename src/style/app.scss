@@ -1,4 +1,14 @@
 
+$vsp-pale-blue: #d2e3ed;
+$vsp-night-blue: #0b4a75;
+
+$vsp-yellow-1: #fefcc1;
+$vsp-yellow-2: #fefd89;
+$vsp-yellow-3: #fcfd59;
+$vsp-yellow-4: #fcff2c;
+$vsp-yellow-5: #ffff01;
+
+
 // customise bulma colours/variables
 $primary: hsl(0, 0%, 7%);
 $family-primary: 'Lato', sans-serif;
@@ -11,8 +21,63 @@ h1, h2, h3, h4, h5, h6 {
    font-family: $family-heading;
 }
 
+.vsp-yellow-1 {
+   background: $vsp-yellow-1;
+}
+.vsp-yellow-2 {
+   background: $vsp-yellow-2;
+}
+.vsp-yellow-3 {
+   background: $vsp-yellow-3;
+}
+.vsp-yellow-4 {
+   background: $vsp-yellow-4;
+}
+.vsp-yellow-5 {
+   background: $vsp-yellow-5;
+}
+
+
+body, .section, .footer {
+   background: $vsp-pale-blue;
+}
+
+.header-bigImage {
+   text-align: center;
+   background: $vsp-pale-blue;
+   position: relative;
+   height: 80px;
+}
+
+@media (min-width: 768px) {
+   .header-bigImage {
+      height: 200px;
+   }  
+}
+
+.header-bigImage-leftBackground {
+   position: absolute;
+   left: 0;
+   top: 0;
+   height: 100%;
+   width: 50%;
+   background: $vsp-night-blue;
+}
+
+.header-bigImage a {
+   position: relative;
+}
+
+.header-menu {
+   font-size: 1.4em;
+}
+
+.intro {
+   text-align: center;
+   font-size: 110%;
+}
+
 .footer {
-   background-color: white;
    padding: 2rem 1.5rem 2rem;
 }
 
