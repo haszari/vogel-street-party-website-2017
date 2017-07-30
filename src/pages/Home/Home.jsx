@@ -3,7 +3,7 @@ import _ from 'lodash'
 import React from 'react'
 import moment from 'moment'
 
-import eventData from '../../data/events'
+// import eventData from '../../data/events'
 
 import googleEventData from '../../data/20170730-testdata'
 

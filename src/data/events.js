@@ -1,3 +1,8 @@
+////
+// THIS FILE IS NOT IN USE
+// REAL EVENTS IN BIG JSON FILE
+////
+
 export default [
    //-- buildings --
 
