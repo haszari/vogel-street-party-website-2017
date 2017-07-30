@@ -5,6 +5,19 @@ import moment from 'moment'
 
 import eventData from '../../data/events'
 
+import googleEventData from '../../data/20170730-testdata'
+
+let googleNiceData = googleEventData.feed.entry.map((item) => {
+   return {
+      title: item['gsx$title']['$t'],
+      blurb: item['gsx$blurb']['$t'],
+      start: item['gsx$start']['$t'],
+      end: item['gsx$end']['$t'],
+      allDay: item['gsx$allday']['$t'],
+      location: item['gsx$location']['$t'],
+      category: item['gsx$category']['$t'],
+   }
+});
 
 const introSection = (
    <section className="main-content section intro">
@@ -86,7 +99,7 @@ const eventBox = function(key, title, copy, location, startTime, endTime) {
 
 export default class Home extends React.Component {
    render() {
-      let events = eventData.map(tidyEventItem);
+      let events = googleNiceData.map(tidyEventItem);
       events = _.sortBy(events, 'timeslot.start', (a, b) => { return a-b; })
 
       let eventComponents = events.map((event, index) => {
