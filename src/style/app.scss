@@ -49,12 +49,6 @@ body, .section, .footer {
    height: 80px;
 }
 
-@media (min-width: 768px) {
-   .header-bigImage {
-      height: 200px;
-   }  
-}
-
 .header-bigImage-leftBackground {
    position: absolute;
    left: 0;
@@ -68,13 +62,8 @@ body, .section, .footer {
    position: relative;
 }
 
-.header-menu {
-   font-size: 1.4em;
-}
-
 .intro {
    text-align: center;
-   font-size: 110%;
 }
 
 .footer {
@@ -95,4 +84,17 @@ body, .section, .footer {
 .event-timeslot {
    font-style: italic;
    text-align: right;
+}
+
+
+@media (min-width: 768px) {
+   .header-bigImage {
+      height: 200px;
+   }  
+   .header-menu {
+      font-size: 1.4em;
+   }
+   .intro {
+      font-size: 110%;
+   }
 }
