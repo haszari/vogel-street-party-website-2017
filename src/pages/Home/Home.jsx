@@ -17,7 +17,7 @@ const introSection = (
    </section>
 );
 
-const eventSection = function(key, title, copy, startTime, endTime) {
+const eventBox = function(key, title, copy, location, startTime, endTime) {
    let dataFormat = 'h:mm p';
    let displayFormat = 'h:mm';
    let timeslot = {
@@ -31,19 +31,24 @@ const eventSection = function(key, title, copy, startTime, endTime) {
       if (timeslot.end.isValid())
          endInfo = (<span> {emdash}<span className="timeslot-end">{timeslot.end.format(displayFormat)}</span></span>);
       timeInfo = (
-         <div className="timeslot">
+         <div className="event-timeslot column">
             <span className="timeslot-start">{timeslot.start.format(displayFormat)}</span>{endInfo}
          </div>
       );
    }
    return (
       <div key={key} className="column is-4">
-         <div className="box">
-            <h1 className="title">{title}</h1>
+         <div className="box event">
+            <h1 className="title event-title">{title}</h1>
             <div>
                {copy}
             </div>
-            {timeInfo}
+            <div className="columns event-details">
+               <div className="event-location column">
+                  {location}
+               </div>
+               {timeInfo}
+            </div>
          </div>
       </div>
    );
@@ -52,7 +57,7 @@ const eventSection = function(key, title, copy, startTime, endTime) {
 export default class Home extends React.Component {
    render() {
       let events = eventData.map((event, index) => {
-         return eventSection(index, event.title, event.blurb, event.start, event.end);
+         return eventBox(index, event.title, event.blurb, event.location, event.start, event.end);
       });
       return (
          <div> 

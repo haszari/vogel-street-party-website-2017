@@ -21,8 +21,13 @@ h1, h2, h3, h4, h5, h6 {
    // width: 4em;
 }
 
-.timeslot {
+
+.event-details {
+   margin-top: 0.2em;
+   font-size: 0.7em;
+}
+
+.event-timeslot {
    font-style: italic;
-   margin-top: 0.5em;
    text-align: right;
 }
