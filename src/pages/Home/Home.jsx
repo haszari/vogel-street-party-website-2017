@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 import React from 'react'
 import moment from 'moment'
 
@@ -17,22 +19,50 @@ const introSection = (
    </section>
 );
 
+let tidyEventItem = (options) => {
+   let event = options;
+   event.display = {
+      startTime: '',
+      endTime: '',
+   }
+
+   let dataFormat = 'h:mm p';
+   let displayFormat = 'h:mm';
+   event.timeslot = {
+      start: moment("12pm", dataFormat),
+      end: moment("10pm", dataFormat),
+   };
+
+   if (event.allDay) {
+      event.display.startTime = 'all day';
+   }
+   else {
+      event.timeslot = {
+         start: moment(options.start, dataFormat),
+         end: moment(options.end, dataFormat),
+      };
+      if (event.timeslot.start.isValid()) {
+         event.display.startTime = event.timeslot.start.format(displayFormat);
+         if (event.timeslot.end.isValid()) 
+            event.display.endTime = event.timeslot.end.format(displayFormat);
+      }
+   }
+
+   return event;
+}
+
 const eventBox = function(key, title, copy, location, startTime, endTime) {
    let dataFormat = 'h:mm p';
    let displayFormat = 'h:mm';
-   let timeslot = {
-      start: moment(startTime, dataFormat),
-      end: moment(endTime, dataFormat),
-   };
    let timeInfo = '';
    let emdash = '\u2014';
-   if (timeslot.start.isValid()) {
+   if (startTime) {
       let endInfo = '';
-      if (timeslot.end.isValid())
-         endInfo = (<span> {emdash}<span className="timeslot-end">{timeslot.end.format(displayFormat)}</span></span>);
+      if (endTime)
+         endInfo = (<span> {emdash} <span className="timeslot-end">{endTime}</span></span>);
       timeInfo = (
          <div className="event-timeslot column">
-            <span className="timeslot-start">{timeslot.start.format(displayFormat)}</span>{endInfo}
+            <span className="timeslot-start">{startTime}</span>{endInfo}
          </div>
       );
    }
@@ -56,15 +86,18 @@ const eventBox = function(key, title, copy, location, startTime, endTime) {
 
 export default class Home extends React.Component {
    render() {
-      let events = eventData.map((event, index) => {
-         return eventBox(index, event.title, event.blurb, event.location, event.start, event.end);
+      let events = eventData.map(tidyEventItem);
+      events = _.sortBy(events, 'timeslot.start', (a, b) => { return a-b; })
+
+      let eventComponents = events.map((event, index) => {
+         return eventBox(index, event.title, event.blurb, event.location, event.display.startTime, event.display.endTime);
       });
       return (
          <div> 
             { introSection }
             <section className="main-content section events">
                <div className="columns is-multiline">
-                  { events } 
+                  { eventComponents } 
                </div>
             </section>
          </div> 
