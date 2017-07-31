@@ -8,6 +8,9 @@ $vsp-yellow-3: #fcfd59;
 $vsp-yellow-4: #fcff2c;
 $vsp-yellow-5: #ffff01;
 
+$vsp-leaf-green: #47eb3d;
+
+$vsp-text-black: #010101;
 
 // customise bulma colours/variables
 $primary: hsl(0, 0%, 7%);
@@ -21,25 +24,35 @@ h1, h2, h3, h4, h5, h6 {
    font-family: $family-heading;
 }
 
-.vsp-yellow-1 {
-   background: $vsp-yellow-1;
-}
-.vsp-yellow-2 {
-   background: $vsp-yellow-2;
-}
-.vsp-yellow-3 {
-   background: $vsp-yellow-3;
-}
-.vsp-yellow-4 {
-   background: $vsp-yellow-4;
-}
-.vsp-yellow-5 {
-   background: $vsp-yellow-5;
-}
+// .vsp-yellow-1 {
+//    background: $vsp-yellow-1;
+// }
+// .vsp-yellow-2 {
+//    background: $vsp-yellow-2;
+// }
+// .vsp-yellow-3 {
+//    background: $vsp-yellow-3;
+// }
+// .vsp-yellow-4 {
+//    background: $vsp-yellow-4;
+// }
+// .vsp-yellow-5 {
+//    background: $vsp-yellow-5;
+// }
+// .vsp-pale-blue {
+//    background: $vsp-pale-blue;
+// }
+// .vsp-night-blue {
+//    background: $vsp-night-blue;
+// }
+// .vsp-leaf-green {
+//    background: $vsp-leaf-green;
+// }
 
 
 body, .section, .footer {
    background: $vsp-pale-blue;
+   color: $vsp-text-black;
 }
 
 .header-bigImage {
@@ -75,6 +88,22 @@ body, .section, .footer {
    // width: 4em;
 }
 
+.box.event.building,
+.box.event.installation,
+.box.event.performance,
+.box.event.activity {
+   background: $vsp-yellow-4;
+}
+.box.event.music {
+   background: $vsp-night-blue;
+   color: white;
+   h1 {
+      color: white;
+   }
+}
+.box.event.food {
+   background: $vsp-leaf-green;
+}
 
 .event-details {
    margin-top: 0.2em;

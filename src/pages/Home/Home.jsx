@@ -72,16 +72,16 @@ const eventBox = function(key, title, copy, location, startTime, endTime, catego
    let timeInfo = '';
    let emdash = '\u2014';
    let classes = "box event ";
-   if (category == 'building') 
-      classes += 'vsp-yellow-1'; 
-   else if (category == 'performance') 
-      classes += 'vsp-yellow-2'; 
-   else if (category == 'installation') 
-      classes += 'vsp-yellow-3'; 
-   else if (category == 'activity') 
-      classes += 'vsp-yellow-4'; 
-   else if (category == 'music') 
-      classes += 'vsp-yellow-5'; 
+   classes += category;
+   // if (category == 'building' || 
+   //       category == 'performance' || 
+   //       category == 'installation' ||
+   //       category == 'activity') 
+   //    classes += 'vsp-leaf-green'; 
+   // else if (category == 'music') 
+   //    classes += 'vsp-night-blue'; 
+   // else if (category == 'food') 
+   //    classes += 'vsp-yellow-4'; 
    if (startTime) {
       let endInfo = '';
       if (endTime)
