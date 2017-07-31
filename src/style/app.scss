@@ -88,18 +88,29 @@ body, .section, .footer {
    // width: 4em;
 }
 
-.box.event.building,
 .box.event.installation,
-.box.event.performance,
-.box.event.activity {
-   background: $vsp-yellow-4;
-}
-.box.event.music {
+.box.event.performance {
    background: $vsp-night-blue;
    color: white;
    h1 {
       color: white;
    }
+}
+.box.event.building {
+   background: $vsp-yellow-4;
+}
+.box.event.activity {
+   background: $vsp-leaf-green;
+}
+.box.event.music.vogel-stage {
+   background: $vsp-night-blue;
+   color: white;
+   h1 {
+      color: white;
+   }
+}
+.box.event.music.queens-stage {
+   background: $vsp-leaf-green;
 }
 .box.event.food {
    background: $vsp-leaf-green;

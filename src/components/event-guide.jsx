@@ -57,8 +57,12 @@ const eventBox = function(key, title, copy, location, startTime, endTime, catego
    let displayFormat = 'h:mm';
    let timeInfo = '';
    let emdash = '\u2014';
-   let classes = "box event ";
-   classes += category;
+   let classes = "box event";
+   classes += " " + category;
+   if (location == "Vogel Stage")
+      classes += " " + 'vogel-stage';
+   if (location == "Queens Gardens Stage")
+      classes += " " + 'queens-stage';
    // if (category == 'building' || 
    //       category == 'performance' || 
    //       category == 'installation' ||
