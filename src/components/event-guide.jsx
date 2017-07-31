@@ -82,13 +82,16 @@ const eventBox = function(key, title, copy, location, startTime, endTime, catego
          </div>
       );
    }
+   // we're not using blurb right now
+   let blurb = (
+      <div>
+         {copy}
+      </div>
+   );
    return (
       <div key={key} className="column is-4">
          <div className={classes}>
             <h1 className="title event-title">{title}</h1>
-            <div>
-               {copy}
-            </div>
             <div className="columns event-details">
                <div className="event-location column">
                   {location}
