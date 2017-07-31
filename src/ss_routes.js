@@ -1,6 +1,9 @@
 module.exports = {
   routes: [
     '/',
-    '/contact'
+    '/music',
+    '/food',
+    '/sponsors',
+    '/contact',
   ]
 }
