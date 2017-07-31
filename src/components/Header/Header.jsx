@@ -43,6 +43,11 @@ export default class Header extends React.Component {
                         </Link>
                      </li>
                      <li>
+                        <Link className="" to="/map">
+                           Map
+                        </Link>
+                     </li>
+                     <li>
                         <Link className="" to="/sponsors">
                            Sponsors
                         </Link>

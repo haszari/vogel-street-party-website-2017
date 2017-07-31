@@ -3,6 +3,7 @@ module.exports = {
     '/',
     '/music',
     '/food',
+    '/map',
     '/sponsors',
     '/contact',
   ]
