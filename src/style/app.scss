@@ -126,6 +126,15 @@ body, .section, .footer {
    text-align: right;
 }
 
+.section.map {
+   padding: 0;
+   .content.map {
+      text-align: center;
+      img {
+         max-width: 80%;
+      }
+   }   
+}
 
 @media (min-width: 768px) {
    .header-bigImage {
