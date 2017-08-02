@@ -120,6 +120,21 @@ export default function EventGuide(props) { //extends React.Component {
       });
       return (
          <section className="main-content section events">
+            <div className="container events events-time-filter">
+               <label>
+                  <span>What&apos;s on? </span>
+                  <select>
+                     <option value="all">Show all</option>
+                     <option value="now">now</option>
+                     <option value="4">12-4 pm</option>
+                     <option value="5">4-5 pm</option>
+                     <option value="6">5-6 pm</option>
+                     <option value="7">6-7 pm</option>
+                     <option value="8">7-8 pm</option>
+                     <option value="9">8-10 pm</option>
+                  </select>
+               </label>
+            </div>
             <div className="columns is-multiline">
                { eventComponents } 
             </div>
