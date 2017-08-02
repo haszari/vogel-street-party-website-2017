@@ -1,8 +1,11 @@
 import _ from 'lodash'
 
 import React from 'react'
-import moment from 'moment'
 
+import momentLib from 'moment'
+import { extendMoment } from 'moment-range';
+// extend moment with moment.range
+const moment = extendMoment(momentLib);
 
 // import eventData from '../../data/events'
 
@@ -14,7 +17,7 @@ let googleNiceData = googleEventData.feed.entry.map((item) => {
       blurb: item['gsx$blurb']['$t'],
       start: item['gsx$start']['$t'],
       end: item['gsx$end']['$t'],
-      allDay: item['gsx$allday']['$t'],
+      // allDay: item['gsx$allday']['$t'],
       location: item['gsx$location']['$t'],
       category: item['gsx$category']['$t'],
    }
@@ -22,79 +25,95 @@ let googleNiceData = googleEventData.feed.entry.map((item) => {
 
 let tidyEventItem = (options) => {
    let event = options;
-   event.display = {
-      startTime: '',
-      endTime: '',
+   event.userSuppliedTime = {
+      start: false,
+      end: false,
    }
 
+   // default times
+   // 12 midday, not next day!
+   let startTime = moment("12", "HH");
+   let endTime = moment("23", "HH");
+
+   // if (event.allDay) {
+   //    event.display.startTime = 'all day';
+   // }
+
+   // carefully override time with user supplied info
    let dataFormat = 'h:mm p';
-   let displayFormat = 'h:mm';
-   event.timeslot = {
-      start: moment("2pm", dataFormat),
-      end: moment("10pm", dataFormat),
+   let rawTimeslot = {
+      start: moment(options.start, dataFormat),
+      end: moment(options.end, dataFormat)
    };
+   if (rawTimeslot.start.isValid()) {
+      event.userSuppliedTime.start = true;
+      startTime = rawTimeslot.start;
+   }
+   if (rawTimeslot.end.isValid()) {
+      event.userSuppliedTime.end = true;
+      console.log(event.title, event.end, options.end, rawTimeslot.end)
+      endTime = rawTimeslot.end;
+   }
 
-   if (event.allDay) {
-      event.display.startTime = 'all day';
+   // force times to be in the afternoon (i.e. 12-24 oclock)
+   if ((startTime.hour() < 12)) {
+      startTime = startTime.add(12, 'hours');
    }
-   else {
-      event.timeslot = {
-         start: moment(options.start, dataFormat),
-         end: moment(options.end, dataFormat),
-      };
-      if (event.timeslot.start.isValid()) {
-         event.display.startTime = event.timeslot.start.format(displayFormat);
-         if (event.timeslot.end.isValid()) 
-            event.display.endTime = event.timeslot.end.format(displayFormat);
-      }
+   if ((endTime.hour() < 12)) {
+      endTime = endTime.add(12, 'hours');
    }
+
+   event.timeslot = moment.range(startTime, endTime);
+   // console.log(event.title, event.timeslot.toString(), event);
+   // console.log('--------------------------')
 
    return event;
 }
 
-const eventBox = function(key, title, copy, location, startTime, endTime, category) {
+const eventBox = function(key, event) {
+// title, copy, location, startTime, endTime, category
+
    let dataFormat = 'h:mm p';
    let displayFormat = 'h:mm';
    let timeInfo = '';
    let emdash = '\u2014';
    let classes = "box event";
-   classes += " " + category;
-   if (location == "Vogel Stage")
+   classes += " " + event.category;
+
+   if (event.location == "Vogel Stage")
       classes += " " + 'vogel-stage';
-   if (location == "Queens Gardens Stage")
+   if (event.location == "Queens Gardens Stage")
       classes += " " + 'queens-stage';
-   // if (category == 'building' || 
-   //       category == 'performance' || 
-   //       category == 'installation' ||
-   //       category == 'activity') 
-   //    classes += 'vsp-leaf-green'; 
-   // else if (category == 'music') 
-   //    classes += 'vsp-night-blue'; 
-   // else if (category == 'food') 
-   //    classes += 'vsp-yellow-4'; 
-   if (startTime) {
+
+      // event.display.startTime = rawTimeslot.start.format(displayFormat);
+
+   if (event.userSuppliedTime.start) {
+      let startTimeString = event.timeslot.start.format(displayFormat);
+      let endTimeString = event.timeslot.end.format(displayFormat);
       let endInfo = '';
-      if (endTime)
-         endInfo = (<span> {emdash} <span className="timeslot-end">{endTime}</span></span>);
+      if (event.userSuppliedTime.end)
+         endInfo = (<span> {emdash} <span className="timeslot-end">{endTimeString}</span></span>);
       timeInfo = (
          <div className="event-timeslot column">
-            <span className="timeslot-start">{startTime}</span>{endInfo}
+            <span className="timeslot-start">{startTimeString}</span>{endInfo}
          </div>
       );
    }
+
    // we're not using blurb right now
-   let blurb = (
-      <div>
-         {copy}
-      </div>
-   );
+   // let blurb = (
+   //    <div>
+   //       {event.blurb}
+   //    </div>
+   // );
+
    return (
       <div key={key} className="column is-4">
          <div className={classes}>
-            <h1 className="title event-title">{title}</h1>
+            <h1 className="title event-title">{event.title}</h1>
             <div className="columns event-details">
                <div className="event-location column">
-                  {location}
+                  {event.location}
                </div>
                {timeInfo}
             </div>
@@ -103,20 +122,41 @@ const eventBox = function(key, title, copy, location, startTime, endTime, catego
    );
 }
 
-export default function EventGuide(props) { //extends React.Component {
-   // render() {
-      let events = googleNiceData.map(tidyEventItem);
-      let includeCategories = props.filter ? props.filter : [];
+export default class EventGuide extends React.Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         filter: {
+            timeRange: moment.range(
+               moment("17", 'HH'),
+               moment("20", 'HH')
+            )
+         }
+      }
+      console.log(this.state.filter.timeRange.toString());
+   }
+
+   render() {
+      let events = googleNiceData.map(tidyEventItem); 
+      let includeCategories = this.props.filter ? this.props.filter : [];
+      let showTimeRange = this.state.filter.timeRange;
 
       events = events.filter((event) => {
          return _.includes(includeCategories, event.category)
       });
+      events = events.filter((event) => {
+         // console.log(event.title, event.timeslot.toString(), showTimeRange.toString());
+         return (
+            showTimeRange.overlaps(event.timeslot) //|| 
+            // showTimeRange.intersect(event.timeslot.range) ||
+            // showTimeRange.contains(event.timeslot.range) ||
+            // event.timeslot.range.contains(showTimeRange)
+         ); 
+      });
       events = _.sortBy(events, 'timeslot.start', (a, b) => { return a-b; })
 
       let eventComponents = events.map((event, index) => {
-         return eventBox(index, event.title, event.blurb, event.location, 
-            event.display.startTime, event.display.endTime,
-            event.category);
+         return eventBox(index, event);
       });
       return (
          <section className="main-content section events">
@@ -140,5 +180,5 @@ export default function EventGuide(props) { //extends React.Component {
             </div>
          </section>
       )
-   // }
+   }
 }
