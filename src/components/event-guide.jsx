@@ -128,12 +128,17 @@ export default class EventGuide extends React.Component {
 
    filterRangeFromValue(value) {
       // default to 'all'
+      let now = moment();
       let timeFilterRange = moment.range(
          moment("12", 'HH'),
          moment("22", 'HH')
       );
       switch (value) {
          case 'now':
+            timeFilterRange = moment.range(
+               now.subtract(30, 'minutes'),
+               now.add(30, 'minutes')
+            );
             break;
          case '4':
             timeFilterRange = moment.range(
