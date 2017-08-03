@@ -30,10 +30,11 @@ export default (locals, callback) => {
 
       // insert the google tracking code manually here so react doesn't sanitise it
       // ugly trick – would be good to find a better technique
-      var preamble = '<html>' + ReactDOMServer.renderToStaticMarkup(
+      var preamble = '<html>' + ReactDOMServer.renderToString(
          <TemplateHead>
          </TemplateHead>
       ) + '<body>';
+      var bundledScript = '<script src="/bundle.js"></script>';
       var tracking = `<script>\
          (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){\
          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\
@@ -43,9 +44,10 @@ export default (locals, callback) => {
          ga("send", "pageview");\
          </script>`;
       var postamble = `</body>\
+         ${bundledScript}\
          ${tracking}\
          </html>`;
-      var html = preamble + ReactDOMServer.renderToStaticMarkup(
+      var html = preamble + ReactDOMServer.renderToString(
             <TemplateContentOutlet>
                <RouterContext {...renderProps} />
             </TemplateContentOutlet>

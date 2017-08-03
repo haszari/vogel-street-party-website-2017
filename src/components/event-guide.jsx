@@ -51,7 +51,6 @@ let tidyEventItem = (options) => {
    }
    if (rawTimeslot.end.isValid()) {
       event.userSuppliedTime.end = true;
-      console.log(event.title, event.end, options.end, rawTimeslot.end)
       endTime = rawTimeslot.end;
    }
 
@@ -71,8 +70,6 @@ let tidyEventItem = (options) => {
 }
 
 const eventBox = function(key, event) {
-// title, copy, location, startTime, endTime, category
-
    let dataFormat = 'h:mm p';
    let displayFormat = 'h:mm';
    let timeInfo = '';
@@ -84,8 +81,6 @@ const eventBox = function(key, event) {
       classes += " " + 'vogel-stage';
    if (event.location == "Queens Gardens Stage")
       classes += " " + 'queens-stage';
-
-      // event.display.startTime = rawTimeslot.start.format(displayFormat);
 
    if (event.userSuppliedTime.start) {
       let startTimeString = event.timeslot.start.format(displayFormat);
@@ -126,32 +121,84 @@ export default class EventGuide extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-         filter: {
-            timeRange: moment.range(
-               moment("17", 'HH'),
-               moment("20", 'HH')
-            )
-         }
+         filterTimeRange: this.filterRangeFromValue('all')
       }
-      console.log(this.state.filter.timeRange.toString());
+      this.onTimeFilter = this.onTimeFilter.bind(this);
+   }
+
+   filterRangeFromValue(value) {
+      // default to 'all'
+      let timeFilterRange = moment.range(
+         moment("12", 'HH'),
+         moment("22", 'HH')
+      );
+      switch (value) {
+         case 'now':
+            break;
+         case '4':
+            timeFilterRange = moment.range(
+               moment("12", 'HH'),
+               moment("16", 'HH')
+            );
+            break;
+         case '5':
+            timeFilterRange = moment.range(
+               moment("16", 'HH'),
+               moment("17", 'HH')
+            );
+            break;
+         case '6':
+            timeFilterRange = moment.range(
+               moment("17", 'HH'),
+               moment("18", 'HH')
+            );
+            break;
+         case '7':
+            timeFilterRange = moment.range(
+               moment("17", 'HH'),
+               moment("18", 'HH')
+            );
+            break;
+         case '8':
+            timeFilterRange = moment.range(
+               moment("18", 'HH'),
+               moment("19", 'HH')
+            );
+            break;
+         case '10':
+            timeFilterRange = moment.range(
+               moment("19", 'HH'),
+               moment("22", 'HH')
+            );
+            break;
+         // case 'all':
+         // default:
+         //    break;
+      }
+      return timeFilterRange;
+   }
+
+   onTimeFilter(domEvent) {
+      this.setState({
+         filterTimeRange: this.filterRangeFromValue(domEvent.target.value)
+      });
    }
 
    render() {
       let events = googleNiceData.map(tidyEventItem); 
       let includeCategories = this.props.filter ? this.props.filter : [];
-      let showTimeRange = this.state.filter.timeRange;
+      let showTimeRange = this.state.filterTimeRange;
+      console.log(showTimeRange.toString());
 
       events = events.filter((event) => {
          return _.includes(includeCategories, event.category)
       });
       events = events.filter((event) => {
-         // console.log(event.title, event.timeslot.toString(), showTimeRange.toString());
-         return (
-            showTimeRange.overlaps(event.timeslot) //|| 
-            // showTimeRange.intersect(event.timeslot.range) ||
-            // showTimeRange.contains(event.timeslot.range) ||
-            // event.timeslot.range.contains(showTimeRange)
-         ); 
+         let overlaps = showTimeRange.overlaps(event.timeslot),
+            contains = showTimeRange.contains(event.timeslot),
+            isContained = event.timeslot.contains(showTimeRange);
+         // console.log(event.title, o, c, C, event.timeslot.toString(), showTimeRange.toString());
+         return (overlaps || contains || isContained);
       });
       events = _.sortBy(events, 'timeslot.start', (a, b) => { return a-b; })
 
@@ -163,7 +210,7 @@ export default class EventGuide extends React.Component {
             <div className="container events events-time-filter">
                <label>
                   <span>What&apos;s on? </span>
-                  <select>
+                  <select onChange={this.onTimeFilter}>
                      <option value="all">Show all</option>
                      <option value="now">now</option>
                      <option value="4">12-4 pm</option>
@@ -171,7 +218,7 @@ export default class EventGuide extends React.Component {
                      <option value="6">5-6 pm</option>
                      <option value="7">6-7 pm</option>
                      <option value="8">7-8 pm</option>
-                     <option value="9">8-10 pm</option>
+                     <option value="10">8-10 pm</option>
                   </select>
                </label>
             </div>
