@@ -210,23 +210,26 @@ export default class EventGuide extends React.Component {
       let eventComponents = events.map((event, index) => {
          return eventBox(index, event);
       });
+      let timeDropdown = (this.props.timeDropdown == false) ? undefined : (
+         <div className="container events events-time-filter">
+            <label>
+               <span>What&apos;s on? </span>
+               <select onChange={this.onTimeFilter}>
+                  <option value="all">Show all</option>
+                  <option value="now">now</option>
+                  <option value="4">12-4 pm</option>
+                  <option value="5">4-5 pm</option>
+                  <option value="6">5-6 pm</option>
+                  <option value="7">6-7 pm</option>
+                  <option value="8">7-8 pm</option>
+                  <option value="10">8-10 pm</option>
+               </select>
+            </label>
+         </div>
+      );
       return (
          <section className="main-content section events">
-            <div className="container events events-time-filter">
-               <label>
-                  <span>What&apos;s on? </span>
-                  <select onChange={this.onTimeFilter}>
-                     <option value="all">Show all</option>
-                     <option value="now">now</option>
-                     <option value="4">12-4 pm</option>
-                     <option value="5">4-5 pm</option>
-                     <option value="6">5-6 pm</option>
-                     <option value="7">6-7 pm</option>
-                     <option value="8">7-8 pm</option>
-                     <option value="10">8-10 pm</option>
-                  </select>
-               </label>
-            </div>
+            { timeDropdown }
             <div className="columns is-multiline">
                { eventComponents } 
             </div>
