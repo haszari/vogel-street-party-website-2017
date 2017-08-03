@@ -13,7 +13,7 @@ const introSection = (
             <div>
                <p>This year the party is all about <b>Ideas and Incubation</b>.</p>
                <p>Saturday the 14th October, Vogel Street, Dunedin</p>
-               <p>Free &amp; all-ages!</p>
+               <p>Free &amp; all-ages! Check out the events and activities on offer.</p>
             </div>
          </div>
       </div>
