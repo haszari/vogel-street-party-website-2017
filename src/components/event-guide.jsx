@@ -160,19 +160,19 @@ export default class EventGuide extends React.Component {
             break;
          case '7':
             timeFilterRange = moment.range(
-               moment("17", 'HH'),
-               moment("18", 'HH')
-            );
-            break;
-         case '8':
-            timeFilterRange = moment.range(
                moment("18", 'HH'),
                moment("19", 'HH')
             );
             break;
-         case '10':
+         case '8':
             timeFilterRange = moment.range(
                moment("19", 'HH'),
+               moment("20", 'HH')
+            );
+            break;
+         case '10':
+            timeFilterRange = moment.range(
+               moment("20", 'HH'),
                moment("22", 'HH')
             );
             break;
