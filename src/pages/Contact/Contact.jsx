@@ -9,7 +9,7 @@ export default class Contact extends React.Component {
                   <div className="content">
                      <h1>Expressions of Interest</h1>
                      <div>
-                        <p><b><a href="https://goo.gl/forms/uoh37DYwzsPe7AKW2">Click here</a></b> and let us know how you'd like to be involved!</p>
+                        <p><b><a href="https://goo.gl/forms/uoh37DYwzsPe7AKW2">Click here</a></b> and let us know how you'd like to get involved!</p>
                      </div>
                   </div>
                </div>
