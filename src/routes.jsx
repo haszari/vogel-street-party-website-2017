@@ -6,6 +6,7 @@ import Contact from './pages/Contact/Contact.jsx'
 import Music from './pages/music.jsx'
 import Food from './pages/food.jsx'
 import Map from './pages/map.jsx'
+import Sponsors from './pages/sponsors.jsx'
 
 module.exports = (
    <Route path='/' component={App}>
@@ -13,7 +14,7 @@ module.exports = (
       <Route path='/music' component={Music}/>
       <Route path='/food' component={Food}/>
       <Route path='/map' component={Map}/>
-      <Route path='/sponsors' component={Contact}/>
+      <Route path='/sponsors' component={Sponsors}/>
       <Route path='/contact' component={Contact}/>
    </Route>
 )
