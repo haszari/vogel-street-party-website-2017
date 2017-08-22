@@ -6,7 +6,7 @@ import moment from 'moment'
 import EventGuide from '../../components/event-guide.jsx'
 
 const introSection = (
-   <section className="main-content section intro">
+   <section className="main-content intro">
       <div className="container">
          <div className="content intro">
             <h1 className="title">Vogel Street Party 2017</h1>
@@ -25,9 +25,11 @@ export default class Home extends React.Component {
    render() {
       let categories = ['building', 'performance', 'installation', 'activity'];
       return (
-         <div> 
+         <div className="home background"> 
+         <div className='container'> 
             { introSection }
             <EventGuide filter={categories} />
+         </div> 
          </div> 
       )
    }

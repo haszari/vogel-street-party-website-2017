@@ -44,25 +44,27 @@ export default function Sponsors() {
    let silver = getSponsors('silver');
    let local = getSponsors('local');
    return (
-      <section className="main-content section sponsors">
-         <div className="container has-text-centered">
-            <h1>Grants</h1>
-            <div className="columns is-centered is-multiline">
-               { grants }
+      <div className="sponsors background"> 
+         <section className="main-content">
+            <div className="container has-text-centered">
+               <h1>Grants</h1>
+               <div className="columns is-centered is-multiline">
+                  { grants }
+               </div>
+               <h1>Gold Sponsors</h1>
+               <div className="columns is-centered is-multiline">
+                  { gold }
+               </div>
+               <h1>Silver Sponsors</h1>
+               <div className="columns is-centered is-multiline">
+                  { silver }
+               </div>
+               <h1>Local Sponsors</h1>
+               <div className="columns is-centered is-multiline">
+                  { local }
+               </div>
             </div>
-            <h1>Gold Sponsors</h1>
-            <div className="columns is-centered is-multiline">
-               { gold }
-            </div>
-            <h1>Silver Sponsors</h1>
-            <div className="columns is-centered is-multiline">
-               { silver }
-            </div>
-            <h1>Local Sponsors</h1>
-            <div className="columns is-centered is-multiline">
-               { local }
-            </div>
-         </div>
-      </section>
+         </section>
+      </div>
    )
 }

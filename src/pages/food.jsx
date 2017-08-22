@@ -9,8 +9,8 @@ export default class Food extends React.Component {
    render() {
       let showDropdown = false;
       return (
-         <div>
-            <section className="main-content section intro">
+         <div className="food background"> 
+            <section className="main-content intro">
                <div className="container">
                   <div className="content intro">
                      <h1 className="title">Vogel Street Party 2017 – Food</h1>

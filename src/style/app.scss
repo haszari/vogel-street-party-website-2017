@@ -50,9 +50,17 @@ h1, h2, h3, h4, h5, h6 {
 // }
 
 
-body, .section, .footer {
+.header, .footer {
    background: $vsp-pale-blue;
    color: $vsp-text-black;
+}
+
+.background {
+   background-color: $vsp-pale-blue;
+}
+
+.sponsors.background {
+   background-color: white;
 }
 
 .header-bigImage {
@@ -77,6 +85,10 @@ body, .section, .footer {
 
 .intro {
    text-align: center;
+}
+
+section {
+   padding: 1rem 1.5rem 1rem;
 }
 
 .footer {
@@ -135,7 +147,7 @@ body, .section, .footer {
    text-align: right;
 }
 
-.section.map {
+section.map {
    padding: 0;
    .content.map {
       text-align: center;

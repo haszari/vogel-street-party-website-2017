@@ -24,7 +24,8 @@ export default class Header extends React.Component {
                </Link>
             </div>
 
-            <section className="header">
+            <div className="header">
+               <div className="container">
                <div className="header-menu tabs is-fullwidth">
                   <ul>
                      <li>
@@ -59,7 +60,8 @@ export default class Header extends React.Component {
                      </li>
                   </ul>
                </div>
-            </section>
+               </div>
+            </div>
          </div>
       )
    }

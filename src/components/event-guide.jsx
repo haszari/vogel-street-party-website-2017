@@ -228,12 +228,14 @@ export default class EventGuide extends React.Component {
          </div>
       );
       return (
-         <section className="main-content section events">
-            { timeDropdown }
-            <div className="columns is-multiline">
-               { eventComponents } 
-            </div>
-         </section>
+            <section className="main-content events">
+               <div className="container">
+                  { timeDropdown }
+                  <div className="columns is-centered is-multiline">
+                     { eventComponents } 
+                  </div>
+               </div>
+            </section>
       )
    }
 }
