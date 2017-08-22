@@ -65,6 +65,7 @@ export default [
    {
       name: 'Zanzibar',
       image: 'zanzibar.jpg',
+      wide: true,
       level: 'local',
    },
 

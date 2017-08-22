@@ -15,16 +15,17 @@ let sponsorBox = function(key, sponsorInfo) {
       classes += ' is-3';
    }
    else if (sponsorInfo.level == 'local') {
-      classes += ' is-2';
+      if (sponsorInfo.wide)
+         classes += ' is-2';
+      else 
+         classes += ' is-1';
    }
    let image = require(`../assets/images/sponsors/${sponsorInfo.image}`);
    // let title = (<h1 className="title event-title">{sponsorInfo.name}</h1>);
 
    return (
       <div key={key} className={classes}>
-         <div>
             <img src={image} alt={sponsorInfo.name}></img>
-         </div>
       </div>
    );
 }
@@ -48,19 +49,19 @@ export default function Sponsors() {
          <section className="main-content">
             <div className="container has-text-centered">
                <h1>Grants</h1>
-               <div className="columns is-centered is-multiline">
+               <div className="columns-sponsorLogos columns is-centered is-multiline">
                   { grants }
                </div>
                <h1>Gold Sponsors</h1>
-               <div className="columns is-centered is-multiline">
+               <div className="columns-sponsorLogos columns is-centered is-multiline">
                   { gold }
                </div>
                <h1>Silver Sponsors</h1>
-               <div className="columns is-centered is-multiline">
+               <div className="columns-sponsorLogos columns is-centered is-multiline">
                   { silver }
                </div>
                <h1>Local Sponsors</h1>
-               <div className="columns is-centered is-multiline">
+               <div className="columns-sponsorLogos columns is-centered is-multiline">
                   { local }
                </div>
             </div>
