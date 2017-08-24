@@ -11,9 +11,20 @@ const introSection = (
          <div className="content intro">
             <h1 className="title">Vogel Street Party 2017</h1>
             <div>
-               <p>This year the party is all about <b>Ideas and Incubation</b>.</p>
-               <p>Saturday the 14th October, Vogel Street, Dunedin</p>
-               <p>Free &amp; all-ages! Check out the events and activities on offer.</p>
+               <p>On <b>14 October 2017</b>, Vogel Street in the Warehouse Precinct will  
+               transform into a family-friendly pedestrian space showcasing Dunedin’s 
+               talented creative communities. This year&apos;s theme is all about <b>IDEAS &amp; INCUBATION</b>. </p>
+
+               <p>We invite you to participate and enjoy the many 
+               and varied interactive activities, exhibitions, performances and installations. 
+               Don&apos;t miss your opportunity to connect with the historical precinct, a
+               gateway linking the globe with Dunedin.</p>
+
+               <p>The core ethos of the <i>Vogel Street Party</i> is to create a collaborative 
+               environment in which a mix of different businesses, industries, community groups, 
+               residents, creatives, artists (local and international) interact with an 
+               audience to celebrate and highlight the area’s unique past, present and future 
+               through a variety of art and technology.</p>
             </div>
          </div>
       </div>

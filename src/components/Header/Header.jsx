@@ -30,7 +30,7 @@ export default class Header extends React.Component {
                   <ul>
                      <li>
                         <Link className="" to="/">
-                           Events
+                           Home
                         </Link>
                      </li>
                      <li>
