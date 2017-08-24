@@ -5,26 +5,52 @@ import moment from 'moment'
 
 import EventGuide from '../../components/event-guide.jsx'
 
+import crowdHugs from '../../assets/images/photos/VSP 2016 By Rewa Pene-86.jpg'
+import stringArt from '../../assets/images/photos/VSP 2016 By Rewa Pene-81.jpg'
+import buildingTour from '../../assets/images/photos/VSP 2016 By Rewa Pene-3.jpg'
+
+
 const introSection = (
    <section className="main-content intro">
       <div className="container">
          <div className="content intro">
             <h1 className="title">Vogel Street Party 2017</h1>
-            <div>
-               <p>On <b>14 October 2017</b>, Vogel Street in the Warehouse Precinct will  
-               transform into a family-friendly pedestrian space showcasing Dunedin’s 
-               talented creative communities. This year&apos;s theme is all about <b>IDEAS &amp; INCUBATION</b>. </p>
-
-               <p>We invite you to participate and enjoy the many 
-               and varied interactive activities, exhibitions, performances and installations. 
-               Don&apos;t miss your opportunity to connect with the historical precinct, a
-               gateway linking the globe with Dunedin.</p>
-
+            <div className="columns columns-introBlurb">
+               <div className="column is-6" style={{ fontSize: '120%' }}>
+                  <p>On <b>14 October 2017</b>, Vogel Street in the Warehouse Precinct will  
+                  transform into a family-friendly pedestrian space showcasing Dunedin’s 
+                  talented creative communities. </p>
+                  <p>This year&apos;s theme is all about <b>IDEAS &amp; INCUBATION</b>. </p>
+               </div>
+               <div className="column is-6">
+                  <img src={crowdHugs} alt="Come one, come all to the Vogel Street Party! photography: Rewa Pene"></img>
+               </div>
+            </div>
+            <div className="columns columns-introBlurb">
+               <div className="column is-5">
+                  <img src={stringArt} alt="Ideas AND Incubation! photography: Rewa Pene"></img>
+               </div>
+               <div className="column is-7">
+                  <p>We invite you to participate and enjoy the many 
+                  and varied interactive activities, exhibitions, performances and installations. 
+                  Don&apos;t miss your opportunity to connect with the historical precinct, a
+                  gateway linking the globe with Dunedin.</p>
+               </div>
+            </div>
+            <div className="columns columns-introBlurb">
+               <div className="column is-7">
                <p>The core ethos of the <i>Vogel Street Party</i> is to create a collaborative 
                environment in which a mix of different businesses, industries, community groups, 
                residents, creatives, artists (local and international) interact with an 
                audience to celebrate and highlight the area’s unique past, present and future 
                through a variety of art and technology.</p>
+               </div>
+               <div className="column is-5">
+                  <img src={buildingTour} alt="Explore the neighbourhood! photography: Rewa Pene"></img>
+               </div>
+            </div>
+            <div>
+
             </div>
          </div>
       </div>
