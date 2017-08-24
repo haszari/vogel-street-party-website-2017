@@ -49,9 +49,6 @@ const introSection = (
                   <img src={buildingTour} alt="Explore the neighbourhood! photography: Rewa Pene"></img>
                </div>
             </div>
-            <div>
-
-            </div>
          </div>
       </div>
    </section>
@@ -60,12 +57,27 @@ const introSection = (
 
 export default class Home extends React.Component {
    render() {
-      let categories = ['building', 'performance', 'installation', 'activity'];
+      // coming soon!
+      // let categories = ['building', 'performance', 'installation', 'activity'];
+      // let events = ( <EventGuide filter={categories} /> );
+      let eventsComingSoon = (
+         <section className="main-content moreInfoComingSoon">
+            <div className="container">
+               <div className="content moreInfoComingSoon">
+                  <h1 className="title">Stay tuned!</h1>
+                  <div className="">
+                     Check back soon to find out more about what you can see and do at the event this year.
+                  </div>
+               </div>
+            </div>
+         </section>
+      );
+
       return (
          <div className="home background"> 
          <div className='container'> 
             { introSection }
-            <EventGuide filter={categories} />
+            { eventsComingSoon }
          </div> 
          </div> 
       )
