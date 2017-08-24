@@ -1,9 +1,9 @@
 module.exports = {
   routes: [
     '/',
-    '/music',
-    '/food',
-    '/map',
+    // '/music',
+    // '/food',
+    // '/map',
     '/sponsors',
     '/contact',
   ]

@@ -15,6 +15,25 @@ export default class Header extends React.Component {
          height: '100%',
       };
 
+      // just you wait!
+      // let musicAndFood = (
+      //    <li>
+      //       <Link className="" to="/music">
+      //          Music
+      //       </Link>
+      //    </li>
+      //    <li>
+      //       <Link className="" to="/food">
+      //          Food
+      //       </Link>
+      //    </li>
+      //       <li>
+      //          <Link className="" to="/map">
+      //             Map
+      //          </Link>
+      //       </li>
+      // );
+
       return (
          <div>
             <div className="header-bigImage is-fullwidth">
@@ -31,21 +50,6 @@ export default class Header extends React.Component {
                      <li>
                         <Link className="" to="/">
                            Home
-                        </Link>
-                     </li>
-                     <li>
-                        <Link className="" to="/music">
-                           Music
-                        </Link>
-                     </li>
-                     <li>
-                        <Link className="" to="/food">
-                           Food
-                        </Link>
-                     </li>
-                     <li>
-                        <Link className="" to="/map">
-                           Map
                         </Link>
                      </li>
                      <li>
