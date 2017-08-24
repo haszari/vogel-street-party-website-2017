@@ -20,7 +20,7 @@ const introSection = (
                   <p>On <b>14 October 2017</b>, Vogel Street in the Warehouse Precinct will  
                   transform into a family-friendly pedestrian space showcasing Dunedin’s 
                   talented creative communities. </p>
-                  <p>This year&apos;s theme is all about <b>IDEAS &amp; INCUBATION</b>. </p>
+                  <p>The theme this year is <b>IDEAS &amp; INCUBATION</b>.</p>
                </div>
                <div className="column is-6">
                   <img src={crowdHugs} alt="Come one, come all to the Vogel Street Party! photography: Rewa Pene"></img>
