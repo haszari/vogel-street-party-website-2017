@@ -26,7 +26,11 @@ export default (locals, callback) => {
       location: location
    }, function(error, redirectLocation, renderProps) {
       // dev temporary ID
-      const gaPropertyId  = 'UA-102630529-1';
+      let gaPropertyId  = 'UA-102630529-1';
+      // production ID
+      if (process.env.NODE_ENV == 'production')
+         gaPropertyId  = 'UA-102630529-2';   
+
 
       // insert the google tracking code manually here so react doesn't sanitise it
       // ugly trick – would be good to find a better technique
