@@ -1,6 +1,6 @@
 {
   "name": "static-site-generator-webpack-plugin-example",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An example static site using static-site-generator-webpack-plugin",
   "main": "src/index.js",
   "scripts": {
