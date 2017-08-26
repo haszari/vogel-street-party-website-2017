@@ -58,6 +58,12 @@ export default [
    },
 
    {
+      name: 'First Security',
+      image: 'FirstSecurity.png',
+      wide: true,
+      level: 'local',
+   },
+   {
       name: 'OCHO',
       image: 'Ocho.jpg',
       level: 'local',
@@ -65,6 +71,12 @@ export default [
    {
       name: 'Zanzibar',
       image: 'zanzibar.jpg',
+      wide: true,
+      level: 'local',
+   },
+   {
+      name: 'Dakins',
+      image: 'Dakins.png',
       wide: true,
       level: 'local',
    },
