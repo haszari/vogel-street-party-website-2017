@@ -31,7 +31,7 @@ module.exports = {
         ),
       },
       {
-        test: /\.(jpg|png)/,
+        test: /\.(jpg|png|pdf)/,
         loader: 'file-loader?name=/assets/img-[hash:6].[ext]',
         include: __dirname + '/src'
       },
