@@ -1,7 +1,7 @@
 {
-  "name": "static-site-generator-webpack-plugin-example",
-  "version": "1.0.1",
-  "description": "An example static site using static-site-generator-webpack-plugin",
+  "name": "vogelstparty-www-dev",
+  "version": "1.0.2",
+  "description": "Vogel Street Party website & app",
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack-base.config.js --hot --port 5000",
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/StevenIseki/static-site-generator-webpack-plugin-example"
+    "url": "https://github.com/haszari/vogel-street-party-website-2017.git"
   },
-  "author": "Steven Iseki",
+  "author": "Rua Haszard Morris",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.5.3",
