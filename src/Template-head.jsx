@@ -13,7 +13,7 @@ export default class Template extends React.Component {
          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
             <link rel="stylesheet" href="/styles.css"/>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-            <link href="https://fonts.googleapis.com/css?family=Muli|Lato" rel="stylesheet"/>          
+            <link href="https://fonts.googleapis.com/css?family=Lato|Chelsea+Market" rel="stylesheet"/>          
             <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon}/>
             <link rel="icon" type="image/png" sizes="32x32" href={favicon32}/>
             <link rel="icon" type="image/png" sizes="16x16" href={favicon16}/>

@@ -14,7 +14,6 @@ const introSection = (
    <section className="main-content intro">
       <div className="container">
          <div className="content intro">
-            <h1 className="title">Vogel Street Party 2017</h1>
             <div className="columns columns-introBlurb">
                <div className="column is-6" style={{ fontSize: '120%' }}>
                   <p>On <b>14 October 2017</b>, Vogel Street in the Warehouse Precinct will  
