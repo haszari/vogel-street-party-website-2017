@@ -45,6 +45,11 @@ export default [
       image: 'mixbit.png',
       level: 'gold',
    },
+   {
+      name: 'Precinct Food',
+      image: 'PrecinctFood.png',
+      level: 'gold',
+   },
 
    {
       name: 'Vogel Street Kitchen',
@@ -77,6 +82,12 @@ export default [
    {
       name: 'Dakins',
       image: 'Dakins.png',
+      wide: true,
+      level: 'local',
+   },
+   {
+      name: 'The Inspired Pantry',
+      image: 'InspiredPantry.jpg',
       wide: true,
       level: 'local',
    },
