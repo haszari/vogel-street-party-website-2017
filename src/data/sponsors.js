@@ -15,6 +15,12 @@ zanzibar.jpg
 
 export default [
    {
+      name: 'Good Good',
+      image: 'GoodGood.png',
+      level: 'namingrights',
+   },
+
+   {
       name: 'Dunedin City Council',
       image: 'DCC.jpg',
       level: 'grant',
@@ -61,6 +67,38 @@ export default [
       image: 'Oakwood.jpg',
       level: 'silver',
    },
+   {
+      name: 'La Di Da',
+      image: 'LaDiDaLogo.jpg',
+      level: 'silver',
+   },
+   {
+      name: 'Live Sound Engineering',
+      image: 'LiveSoundEngineering.jpg',
+      level: 'silver',
+   },
+   {
+      name: 'Refuel',
+      image: 'Refuel.jpg',
+      level: 'silver',
+   },
+   {
+      name: 'Speedprint',
+      image: 'Speedprint.jpg',
+      level: 'silver',
+   },
+   {
+      name: 'Strawberry Sound',
+      image: 'StrawberrySound.jpg',
+      level: 'silver',
+      tall: true,
+   },
+   {
+      name: 'The Breeze',
+      image: 'TheBreeze.png',
+      level: 'silver',
+   },
+
 
    {
       name: 'First Security',
@@ -88,6 +126,23 @@ export default [
    {
       name: 'The Inspired Pantry',
       image: 'InspiredPantry.jpg',
+      wide: true,
+      level: 'local',
+   },
+   {
+      name: 'CEG',
+      image: 'CEG.png',
+      level: 'local',
+   },
+   {
+      name: 'Dog With Two Tails',
+      image: 'DogWithTwoTails.jpg',
+      wide: true,
+      level: 'local',
+   },
+   {
+      name: 'McAuliffe Stephens',
+      image: 'McAuliffeStephens.png',
       wide: true,
       level: 'local',
    },

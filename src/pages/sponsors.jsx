@@ -5,14 +5,20 @@ import sponsorData from '../data/sponsors'
 
 let sponsorBox = function(key, sponsorInfo) {
    let classes = "column sponsor-" + sponsorInfo.level;
-   if (sponsorInfo.level == 'grant') {
+   if (sponsorInfo.level == 'namingrights') {
+      classes += ' is-5';
+   }
+   else if (sponsorInfo.level == 'grant') {
       classes += ' is-4';
    }
    else if (sponsorInfo.level == 'gold') {
       classes += ' is-4';
    }
    else if (sponsorInfo.level == 'silver') {
-      classes += ' is-3';
+      if (sponsorInfo.tall)
+         classes += ' is-2';
+      else
+         classes += ' is-3';
    }
    else if (sponsorInfo.level == 'local') {
       if (sponsorInfo.wide)
@@ -40,6 +46,7 @@ let getSponsors = function(level) {
 }
 
 export default function Sponsors() {
+   let namingrights = getSponsors('namingrights');
    let grants = getSponsors('grant');
    let gold = getSponsors('gold');
    let silver = getSponsors('silver');
@@ -48,6 +55,10 @@ export default function Sponsors() {
       <div className="sponsors background"> 
          <section className="main-content">
             <div className="container has-text-centered">
+               <h1>Naming Rights</h1>
+               <div className="columns-sponsorLogos columns is-centered is-multiline">
+                  { namingrights }
+               </div>
                <h1>Grants</h1>
                <div className="columns-sponsorLogos columns is-centered is-multiline">
                   { grants }
