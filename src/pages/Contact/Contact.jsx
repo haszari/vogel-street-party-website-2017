@@ -13,6 +13,10 @@ export default class Contact extends React.Component {
             <section className="main-content">
                <div className="container has-text-centered">
                   <div className="content">
+                     <h1>Volunteers!</h1>
+                     <div>
+                        <p>Vogel Street Party gets by with an army of volunteers. <b><a href="https://docs.google.com/forms/d/e/1FAIpQLSdIE9Qlaw-glTbm54rtuRUgy95K-GiO-i6ipT6CH2CUe7FEpw/viewform?usp=sf_link">Click here</a></b> if you can help.</p>
+                     </div>
                      <h1>Bands, Performers, DJs &amp; Musicians</h1>
                      <div>
                         <p><b><a href="https://docs.google.com/forms/d/1cCBcdKT2V2WgCKT2gaaVovIEsM6LcxEBcHgonbM7wss/edit">Click here</a></b> to register your interest in performing.</p>
