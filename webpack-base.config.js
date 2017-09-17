@@ -45,7 +45,12 @@ module.exports = {
    postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
    plugins: [
       extractSass,
-      new OfflinePlugin(),
+      new OfflinePlugin({
+         // disable ServiceWorker - it requires https, which we don't have (on GitHub Pages)
+         ServiceWorker: false, 
+         // network first so people get the latest unless they are offline
+         responseStrategy: 'network-first'
+      }),
       new StaticSiteGeneratorPlugin('main', ss.routes, ss),
    ]
 };
