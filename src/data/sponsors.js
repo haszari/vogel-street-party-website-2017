@@ -98,6 +98,11 @@ export default [
       image: 'TheBreeze.png',
       level: 'silver',
    },
+   {
+      name: 'Signal ICT Grad School',
+      image: 'Signal.jpg',
+      level: 'silver',
+   },
 
 
    {
@@ -143,6 +148,12 @@ export default [
    {
       name: 'McAuliffe Stephens',
       image: 'McAuliffeStephens.png',
+      wide: true,
+      level: 'local',
+   },
+   {
+      name: 'Phantom Billstickers',
+      image: 'Phantom.jpg',
       wide: true,
       level: 'local',
    },
