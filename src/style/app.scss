@@ -69,13 +69,14 @@ h1, h2, h3, h4, h5, h6 {
    background: $vsp-pale-blue;
    position: relative;
    padding-top: 1.5em;
+   font-family: $family-heading;
+   color: $vsp-night-blue;
 }
 .header-bigImage {
    height: 80px;
 }
-.header-title, .header-date, .header-menu {
-   font-family: $family-heading;
-   color: $vsp-night-blue;
+.header-namingSponsor {
+   font-size: 140%;
 }
 .header-title {
    text-transform: uppercase;

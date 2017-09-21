@@ -3,13 +3,14 @@ import {Link, IndexLink} from 'react-router'
 
 import logoImage from '../../assets/images/20170620-vogelstreetparty-2017-logo-crop.png'
 import headerImage from '../../assets/images/header-banner-transparent-2000.png'
+import goodGoodLogoImage from '../../assets/images/sponsors/GoodGood.png';
 
 
 export default class Header extends React.Component {
    render() {
-      let logoImageStyle = {
-         height: '25px',
-         paddingRight: '8px',
+      let sponsorLogoImageStyle = {
+         height: '60px',
+         verticalAlign: 'middle',
       };
       let headerImageStyle = {
          height: '100%',
@@ -42,6 +43,9 @@ export default class Header extends React.Component {
       return (
          <div>
             <div className="header-bigImage-wrapper is-fullwidth">
+               <div className="header-namingSponsor is-fullwidth">
+                  <img src={goodGoodLogoImage} style={sponsorLogoImageStyle} alt="Good Good"></img> proudly presents
+               </div>
                <div className="header-bigImage is-fullwidth">
                   <Link className="" to="/">
                      <img src={headerImage} style={headerImageStyle} alt="Ideas &amp; Incubation"></img>
