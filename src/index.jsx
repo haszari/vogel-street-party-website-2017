@@ -34,7 +34,7 @@ export default (locals, callback) => {
 
       // insert the google tracking code manually here so react doesn't sanitise it
       // ugly trick – would be good to find a better technique
-      var preamble = '<html>' + ReactDOMServer.renderToString(
+      var preamble = '<html manifest="appcache/manifest.appcache">' + ReactDOMServer.renderToString(
          <TemplateHead>
          </TemplateHead>
       ) + '<body>';
