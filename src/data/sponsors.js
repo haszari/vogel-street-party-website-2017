@@ -152,6 +152,12 @@ export default [
       level: 'local',
    },
    {
+      name: 'Tuppence Cafe',
+      image: 'TuppenceCafe.png',
+      wide: true,
+      level: 'local',
+   },
+   {
       name: 'Phantom Billstickers',
       image: 'Phantom.jpg',
       wide: true,
