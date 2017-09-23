@@ -28,10 +28,13 @@ let sponsorBox = function(key, sponsorInfo) {
    }
    let image = require(`../assets/images/sponsors/${sponsorInfo.image}`);
    // let title = (<h1 className="title event-title">{sponsorInfo.name}</h1>);
-
+   let imageElement = ( <img src={image} alt={sponsorInfo.name}></img> );
+   let logoElement = imageElement;
+   if (sponsorInfo.website)
+      logoElement = ( <a href={sponsorInfo.website}>{logoElement}</a> );
    return (
       <div key={key} className={classes}>
-            <img src={image} alt={sponsorInfo.name}></img>
+         { logoElement }
       </div>
    );
 }

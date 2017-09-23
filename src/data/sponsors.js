@@ -18,6 +18,7 @@ export default [
       name: 'Good Good',
       image: 'GoodGood.png',
       level: 'namingrights',
+      website: 'https://www.goodgood.co.nz/',
    },
 
    {

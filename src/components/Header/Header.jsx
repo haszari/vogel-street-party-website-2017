@@ -44,7 +44,7 @@ export default class Header extends React.Component {
          <div>
             <div className="header-bigImage-wrapper is-fullwidth">
                <div className="header-namingSponsor is-fullwidth">
-                  <img src={goodGoodLogoImage} style={sponsorLogoImageStyle} alt="Good Good"></img> proudly presents
+                  <a href="https://www.goodgood.co.nz/"><img src={goodGoodLogoImage} style={sponsorLogoImageStyle} alt="Good Good"></img> proudly presents</a>
                </div>
                <div className="header-bigImage is-fullwidth">
                   <Link className="" to="/">
