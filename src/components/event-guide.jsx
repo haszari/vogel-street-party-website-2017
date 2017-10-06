@@ -69,6 +69,66 @@ let tidyEventItem = (options) => {
    return event;
 }
 
+const eventIconsMap = {
+   1: "building",
+   2: "music",
+   3: "installation",
+   4: "performance",
+   5: "activity",
+   6: "business",
+};
+const eventIcons = {
+   music: (
+      <div className="event event-icon">
+         <div>
+            <span className="fa fa-music"></span>
+            <div className="event-icon-title">Music</div>
+         </div>
+      </div>
+   ),
+   building: (
+      <div className="event event-icon">
+         <div>
+            <span className="fa fa-bank"></span>
+            <div className="event-icon-title">Open Building</div>
+         </div>
+      </div>
+   ),
+   installation: (
+      <div className="event event-icon">
+         <div>
+            <span className="fa fa-spinner"></span>
+            <div className="event-icon-title">Installation</div>
+         </div>
+      </div>
+   ),
+   performance: (
+      <div className="event event-icon">
+         <div>
+            <span className="fa fa-child"></span>
+            <div className="event-icon-title">Performance</div>
+         </div>
+      </div>
+   ),
+   activity: (
+      <div className="event event-icon">
+         <div>
+            <span className="fa fa-gamepad"></span>
+            <div className="event-icon-title">Activity</div>
+         </div>
+      </div>
+   ),
+   business: (
+      <div className="event event-icon">
+         <div>
+            <span className="fa fa-cutlery"></span>
+            <div className="event-icon-title">Business</div>
+         </div>
+      </div>
+   ),
+};
+
+
 const eventBox = function(key, event) {
    let dataFormat = 'h:mm p';
    let displayFormat = 'h:mm';
@@ -89,11 +149,13 @@ const eventBox = function(key, event) {
       if (event.userSuppliedTime.end)
          endInfo = (<span> {emdash} <span className="timeslot-end">{endTimeString}</span></span>);
       timeInfo = (
-         <div className="event-timeslot column">
+         <span className="event-timeslot">
             <span className="timeslot-start">{startTimeString}</span>{endInfo}
-         </div>
+         </span>
       );
    }
+
+   let icon = eventIcons[eventIconsMap[event.category]];
 
    // we're not using blurb right now
    // let blurb = (
@@ -105,12 +167,12 @@ const eventBox = function(key, event) {
    return (
       <div key={key} className="column is-4">
          <div className={classes}>
-            <h1 className="title event-title">{event.title}</h1>
-            <div className="columns event-details">
-               <div className="event-location column">
-                  {event.location}
+            <h1 className="title event-title">{event.title}</h1> 
+            <div className="columns is-mobile event-details">
+               <div className="event-location-time column">
+                  {event.location} {timeInfo}
                </div>
-               {timeInfo}
+               { icon } 
             </div>
          </div>
       </div>
@@ -213,6 +275,7 @@ export default class EventGuide extends React.Component {
       let eventComponents = events.map((event, index) => {
          return eventBox(index, event);
       });
+
       let timeDropdown = (this.props.timeDropdown == false) ? undefined : (
          <div className="container events events-time-filter">
             <label>
@@ -230,6 +293,7 @@ export default class EventGuide extends React.Component {
             </label>
          </div>
       );
+
       return (
             <section className="main-content events">
                <div className="container">

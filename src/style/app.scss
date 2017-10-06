@@ -129,6 +129,11 @@ section {
    }
 }
 
+.event-title {
+   font-size: 1.7rem;
+}
+
+/*
 .box.event.installation,
 .box.event.performance {
    background: $vsp-night-blue;
@@ -156,15 +161,19 @@ section {
 .box.event.food {
    background: $vsp-yellow-3;
 }
-
+*/
 .event-details {
    margin-top: 0.2em;
    font-size: 0.7em;
+
+   .event-location-time {
+      margin-top: auto;
+      padding: 0;
+   }
 }
 
 .event-timeslot {
    font-style: italic;
-   text-align: right;
 }
 
 .columns-sponsorLogos {
@@ -175,6 +184,26 @@ section {
    align-items: center;
 }
 
+
+.event.event-icon {
+   text-align: center;
+   color: $vsp-text-black;
+
+   .fa {
+      font-size: 200%;
+      border-radius: 8px;
+      padding: 4px;
+   }
+
+   .fa.fa-gamepad {
+      padding-top: 0;
+   }
+
+   .event-icon-title {
+      font-size: 70%;
+      text-transform: uppercase;
+   }
+}
 
 section.map {
    padding: 0;
