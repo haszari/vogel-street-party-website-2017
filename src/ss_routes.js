@@ -1,8 +1,8 @@
 module.exports = {
   routes: [
     '/',
-    // '/music',
-    // '/food',
+    '/music',
+    '/food',
     // '/map',
     '/sponsors',
     '/contact',
