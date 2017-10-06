@@ -6,9 +6,11 @@ import TemplateHead from './Template-head.jsx'
 import TemplateContentOutlet from './Template-content-outlet.jsx'
 import Routes from './routes.jsx'
 
-var offlinePlugin = require('offline-plugin/runtime');
-if (typeof window != 'undefined' && window.navigator)
-  offlinePlugin.install();
+if (process.env.NODE_ENV == 'production') {   
+   var offlinePlugin = require('offline-plugin/runtime');
+   if (window && typeof window != 'undefined' && window.navigator)
+     offlinePlugin.install();
+}
 
 /* Client render (optional) */
 if (typeof document !== 'undefined') {

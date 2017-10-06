@@ -1,7 +1,6 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 // var CopyWebpackPlugin = require('copy-webpack-plugin');
-var OfflinePlugin = require('offline-plugin');
 
 var autoprefixer = require('autoprefixer');
 var ss = require('./src/ss_routes');
@@ -46,11 +45,5 @@ module.exports = {
    plugins: [
       extractSass,
       new StaticSiteGeneratorPlugin('main', ss.routes, ss),
-      new OfflinePlugin({
-         // disable ServiceWorker - it requires https, which we don't have (on GitHub Pages)
-         ServiceWorker: false, 
-         // network first so people get the latest unless they are offline
-         responseStrategy: 'network-first'
-      }),
    ]
 };
