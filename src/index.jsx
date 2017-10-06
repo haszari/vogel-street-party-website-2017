@@ -6,10 +6,12 @@ import TemplateHead from './Template-head.jsx'
 import TemplateContentOutlet from './Template-content-outlet.jsx'
 import Routes from './routes.jsx'
 
+let htmlOpener = '<html>';
 if (process.env.NODE_ENV == 'production') {   
    var offlinePlugin = require('offline-plugin/runtime');
    if (window && typeof window != 'undefined' && window.navigator)
-     offlinePlugin.install();
+      offlinePlugin.install();
+   htmlOpener = '<html manifest="appcache/manifest.appcache">';
 }
 
 /* Client render (optional) */
@@ -36,7 +38,7 @@ export default (locals, callback) => {
 
       // insert the google tracking code manually here so react doesn't sanitise it
       // ugly trick – would be good to find a better technique
-      var preamble = '<html manifest="appcache/manifest.appcache">' + ReactDOMServer.renderToString(
+      var preamble = htmlOpener + ReactDOMServer.renderToString(
          <TemplateHead>
          </TemplateHead>
       ) + '<body>';
