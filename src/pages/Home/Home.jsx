@@ -57,7 +57,8 @@ const introSection = (
 export default class Home extends React.Component {
    render() {
       // 2 => music page
-      // 6 => open businesses
+      // 6 => food & open businesses
+      // we show the other stuff here
       let categories = ['1', '3', '4', '5'];
       let events = ( <EventGuide filter={categories} /> );
       // let eventsComingSoon = (
