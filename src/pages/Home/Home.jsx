@@ -56,27 +56,28 @@ const introSection = (
 
 export default class Home extends React.Component {
    render() {
-      // coming soon!
-      // let categories = ['building', 'performance', 'installation', 'activity'];
-      // let events = ( <EventGuide filter={categories} /> );
-      let eventsComingSoon = (
-         <section className="main-content moreInfoComingSoon">
-            <div className="container">
-               <div className="content moreInfoComingSoon">
-                  <h1 className="title">Stay tuned!</h1>
-                  <div className="">
-                     Check back soon to find out more about what you can see and do at the event this year.
-                  </div>
-               </div>
-            </div>
-         </section>
-      );
+      // 2 => music page
+      // 6 => open businesses
+      let categories = ['1', '3', '4', '5'];
+      let events = ( <EventGuide filter={categories} /> );
+      // let eventsComingSoon = (
+      //    <section className="main-content moreInfoComingSoon">
+      //       <div className="container">
+      //          <div className="content moreInfoComingSoon">
+      //             <h1 className="title">Stay tuned!</h1>
+      //             <div className="">
+      //                Check back soon to find out more about what you can see and do at the event this year.
+      //             </div>
+      //          </div>
+      //       </div>
+      //    </section>
+      // );
 
       return (
          <div className="home background"> 
          <div className='container'> 
             { introSection }
-            { eventsComingSoon }
+            { events }
          </div> 
          </div> 
       )

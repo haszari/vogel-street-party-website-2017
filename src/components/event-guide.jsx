@@ -9,7 +9,7 @@ const moment = extendMoment(momentLib);
 
 // import eventData from '../../data/events'
 
-import googleEventData from '../data/20170730-testdata'
+import googleEventData from '../data/20171006-vsp-event-data';
 
 let googleNiceData = googleEventData.feed.entry.map((item) => {
    return {

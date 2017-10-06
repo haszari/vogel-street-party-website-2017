@@ -39,6 +39,13 @@ export default class Header extends React.Component {
          </li>
       );
       let spacer = ( <li></li> );
+      let contact = (
+         <li>
+            <Link className="" to="/contact">
+               Contact
+            </Link>
+         </li>
+      );
 
       return (
          <div>
@@ -63,23 +70,18 @@ export default class Header extends React.Component {
                <div className="container">
                <div className="header-menu tabs is-fullwidth">
                   <ul>
-                     { spacer }
                      <li>
                         <Link className="" to="/">
                            Home
                         </Link>
                      </li>
+                     { music }
+                     { food }
                      <li>
                         <Link className="" to="/sponsors">
                            Sponsors
                         </Link>
                      </li>
-                     <li>
-                        <Link className="" to="/contact">
-                           Contact
-                        </Link>
-                     </li>
-                     { spacer }
                   </ul>
                </div>
                </div>

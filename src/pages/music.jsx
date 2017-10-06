@@ -14,12 +14,12 @@ export default class Music extends React.Component {
                   <div className="content">
                      <h1 className="title">Vogel Street Party 2017 – Music</h1>
                      <div>
-                        <p>There will be various stages with a range of acts, from folk, rock, reggae, kapa haka, magic, and electronica on show!</p>
+                        <p>Experience the evolving Dunedin Sound.</p>
                      </div>
                   </div>
                </div>
             </section>
-            <EventGuide filter="music" />
+            <EventGuide filter="2" />
          </div> 
       )
    }
