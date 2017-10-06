@@ -7,9 +7,10 @@ import TemplateContentOutlet from './Template-content-outlet.jsx'
 import Routes from './routes.jsx'
 
 var offlinePlugin = require('offline-plugin/runtime');
+
 let htmlOpener = '<html>';
-if (process.env.NODE_ENV == 'production') {   
-   if (window && typeof window != 'undefined' && window.navigator)
+if (process.env.NODE_ENV == 'production') {
+   if (typeof window != 'undefined' && window.navigator)
       offlinePlugin.install();
    htmlOpener = '<html manifest="appcache/manifest.appcache">';
 }

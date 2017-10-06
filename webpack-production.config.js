@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
 const CommonConfig = require('./webpack-base.config.js');
-// var OfflinePlugin = require('offline-plugin');
 
 module.exports = Merge(CommonConfig, {
    plugins: [
