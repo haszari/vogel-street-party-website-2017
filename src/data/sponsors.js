@@ -79,6 +79,12 @@ export default [
       level: 'silver',
    },
    {
+      name: 'Southern Lights & Services',
+      image: 'SouthernLights.png',
+      level: 'silver',
+      tall: true,
+   },
+   {
       name: 'Refuel',
       image: 'Refuel.jpg',
       level: 'silver',
@@ -93,6 +99,11 @@ export default [
       image: 'StrawberrySound.jpg',
       level: 'silver',
       tall: true,
+   },
+   {
+      name: 'Ombrellos Kitchen & Bar',
+      image: 'Ombrellos.jpg',
+      level: 'silver',
    },
    {
       name: 'The Breeze',
