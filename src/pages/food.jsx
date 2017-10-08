@@ -13,9 +13,9 @@ export default class OpenBusinesses extends React.Component {
             <section className="main-content intro">
                <div className="container">
                   <div className="content intro">
-                     <h1 className="title">Open Businesses & Food Vendors</h1>
+                     <h1 className="title">Food & Drink</h1>
                      <div>
-                        <p>Have a drink, a bite to eat, or explore.</p>
+                        <p>Have a drink or a bite to eat from Dunedin's finest eateries.</p>
                      </div>
                   </div>
                </div>

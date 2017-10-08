@@ -59,7 +59,7 @@ export default class Home extends React.Component {
       // 2 => music page
       // 6 => food & open businesses
       // we show the other stuff here
-      let categories = ['1', '3', '4', '5'];
+      let categories = ['1', '3', '4', '5', '7'];
       let events = ( <EventGuide filter={categories} /> );
       // let eventsComingSoon = (
       //    <section className="main-content moreInfoComingSoon">

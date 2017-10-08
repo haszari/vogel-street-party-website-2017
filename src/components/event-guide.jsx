@@ -75,7 +75,8 @@ const eventIconsMap = {
    3: "installation",
    4: "performance",
    5: "activity",
-   6: "business",
+   6: "food",
+   7: "business",
 };
 const eventIcons = {
    music: (
@@ -118,11 +119,11 @@ const eventIcons = {
          </div>
       </div>
    ),
-   business: (
+   food: (
       <div className="event event-icon">
          <div>
             <span className="fa fa-cutlery"></span>
-            <div className="event-icon-title">Business</div>
+            <div className="event-icon-title">Food</div>
          </div>
       </div>
    ),

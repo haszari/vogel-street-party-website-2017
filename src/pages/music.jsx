@@ -12,7 +12,7 @@ export default class Music extends React.Component {
             <section className="main-content has-text-centered">
                <div className="container">
                   <div className="content">
-                     <h1 className="title">Vogel Street Party 2017 – Music</h1>
+                     <h1 className="title">Music</h1>
                      <div>
                         <p>Experience the evolving Dunedin Sound.</p>
                      </div>
