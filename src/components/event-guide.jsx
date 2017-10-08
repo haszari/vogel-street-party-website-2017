@@ -20,6 +20,8 @@ let googleNiceData = googleEventData.feed.entry.map((item) => {
       // allDay: item['gsx$allday']['$t'],
       location: item['gsx$location']['$t'],
       category: item['gsx$category']['$t'],
+      latitude: item['gsx$latitudeid']['$t'],
+      longitude: item['gsx$longitudeid']['$t'],
    }
 });
 
@@ -65,6 +67,10 @@ let tidyEventItem = (options) => {
    event.timeslot = moment.range(startTime, endTime);
    // console.log(event.title, event.timeslot.toString(), event);
    // console.log('--------------------------')
+
+   event.locationUrl = '';
+   if (event.latitude && event.longitude)
+      event.locationUrl = `https://www.google.com/maps/search/?api=1&query=${event.latitude},${event.longitude}`;
 
    return event;
 }
@@ -165,13 +171,26 @@ const eventBox = function(key, event) {
    //    </div>
    // );
 
+   let locationInfo = '';
+   if (event.locationUrl){
+      locationInfo = (
+         <a href={event.locationUrl}>
+            <span className="fa fa-map-marker"></span>
+            <span className="">{event.location}</span>
+         </a>
+      );
+   }
+   else 
+      locationInfo = event.location;
+
+
    return (
       <div key={key} className="column is-4">
          <div className={classes}>
             <h1 className="title event-title">{event.title}</h1> 
             <div className="columns is-mobile event-details">
                <div className="event-location-time column">
-                  {event.location} {timeInfo}
+                  {locationInfo} {timeInfo}
                </div>
                { icon } 
             </div>
