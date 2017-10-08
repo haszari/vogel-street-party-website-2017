@@ -255,7 +255,7 @@ export default class EventGuide extends React.Component {
       let events = googleNiceData.map(tidyEventItem); 
 
       // filter out dud events with empty title
-      // events = _.filter(events, (event) => { return event.title });
+      events = _.filter(events, (event) => { return event.title });
 
       let includeCategories = this.props.filter ? this.props.filter : [];
       let showTimeRange = this.state.filterTimeRange;
