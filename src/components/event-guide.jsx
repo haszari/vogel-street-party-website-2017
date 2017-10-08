@@ -165,11 +165,11 @@ const eventBox = function(key, event) {
    let icon = eventIcons[eventIconsMap[event.category]];
 
    // we're not using blurb right now
-   // let blurb = (
-   //    <div>
-   //       {event.blurb}
-   //    </div>
-   // );
+   let blurb = (
+      <div>
+         {event.blurb}
+      </div>
+   );
 
    let locationInfo = '';
    if (event.locationUrl){
@@ -188,6 +188,7 @@ const eventBox = function(key, event) {
       <div key={key} className="column is-4">
          <div className={classes}>
             <h1 className="title event-title">{event.title}</h1> 
+            <div className="event-blurb">{blurb}</div>
             <div className="columns is-mobile event-details">
                <div className="event-location-time column">
                   {locationInfo} {timeInfo}
