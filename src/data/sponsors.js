@@ -115,6 +115,11 @@ export default [
       image: 'Signal.jpg',
       level: 'silver',
    },
+   {
+      name: 'My Little Local',
+      image: 'MyLittleLocal.png',
+      level: 'silver',
+   },
 
 
    {
